@@ -1,15 +1,21 @@
 (() => {
   var codeBtn = document.querySelector(".code");
   var decodeBtn = document.querySelector(".decode");
+  var typeChangeBtn = document.querySelector(".type-change");
+  var type = "normal";
+  var passwordBox = document.querySelector(".password");
+  var normalBox = document.querySelector(".normal");
   //array with all the alphabets
   var alpha = [
     "b",
     "a",
     "d",
+    "<",
     "c",
     "r",
     "g",
     "h",
+    ">",
     "f",
     "i",
     "j",
@@ -18,16 +24,19 @@
     "m",
     "o",
     "n",
+    "{",
     "u",
     "q",
     "e",
     "s",
     "y",
+    "}",
     "p",
     "v",
     "w",
     "l",
     "t",
+    "]",
     "z",
     "1",
     "!",
@@ -49,7 +58,8 @@
     "(",
     "0",
     ")",
-    " "
+    " ",
+    "["
   ];
   // alpha = alpha.concat(alpha);
   var myTxt = [];
@@ -94,7 +104,6 @@
     // console.log(myTxt);
     //passing the coded value to the output text field
     outStr.value = myTxt.join("");
-    // outStr;
   }
 
   // event listeners
@@ -105,10 +114,22 @@
     if (e.target == decodeBtn) {
       code("decode");
     }
+    if (e.target == typeChangeBtn) {
+      if (type == "normal") {
+        typeChangeBtn.innerHTML = "Normal-Type";
+        passwordBox.classList.add("show");
+        normalBox.classList.remove("show");
+        normalBox.classList.remove("input-text");
+        type = "password";
+      } else if (type == "password") {
+        typeChangeBtn.innerHTML = "Password-Type";
+        passwordBox.classList.remove("show");
+        normalBox.classList.add("show");
+        normalBox.classList.add("input-text");
+        type = "normal";
+      }
+    }
   });
 
   window.addEventListener("keydown", function(e) {});
 })();
-
-// var arr = ["a", "b", "c"];
-// console.log(arr.length);

@@ -46,6 +46,17 @@ body {
 }
 .input-text {
   color: green;
+  display: none;
+}
+.normal {
+  display: none;
+}
+.password {
+  /* color: white; */
+}
+.show {
+  display: block;
+  /* visibility: visible; */
 }
 .output-text {
   color: red;
@@ -59,7 +70,8 @@ body {
 }
 
 .code,
-.decode {
+.decode,
+.type-change {
   /* background: green; */
   margin: 10px;
   border: none;
@@ -74,6 +86,12 @@ body {
 
 .code {
   background: red;
+}
+.type-change {
+  background: blue;
+}
+button:active {
+  box-shadow: rgb(219, 197, 0) 0px 0px 50px;
 }
 
 .credit {
